@@ -1,0 +1,54 @@
+version: "3.6"
+networks:
+    noharm-net:
+      name: noharm-net
+      ipam:
+        driver: default
+        config: 
+          - subnet: "172.19.0.0/16"
+services:
+ nifi:
+    container_name: "nifi"
+    hostname: "noharm-nifi"
+    image: "noharm/nifi:1.21.0"
+    entrypoint:
+      - "../scripts/start.sh"
+    env_file:
+      - ./noharm.env
+    ipc: "private"
+    labels:
+        maintainer: "NoHarm.ai <suporte@noharm.ai>"
+    logging:
+      driver: "json-file"
+      options: {}
+    networks:
+      noharm-net:
+        ipv4_address: 172.19.0.2
+    ports:
+      - "8443:8443/tcp"
+    restart: "always"
+    user: "nifi"
+    working_dir: "/opt/nifi/nifi-current"   
+ myanony:
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "python main.py"
+    container_name: "myanony"
+    hostname: "noharm-anony"
+    image: "noharm/anony:0.1"
+    env_file:
+      - ./noharm.env    
+    ipc: "private"
+    labels:
+      maintainer: "NoHarm.ai <suporte@noharm.ai>"
+    logging:
+      driver: "json-file"
+      options: {}
+    networks:
+      noharm-net:
+        ipv4_address: 172.19.0.3
+    ports:
+      - "80:80/tcp"
+    restart: "always"
+    working_dir: "/app"
