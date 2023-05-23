@@ -5,7 +5,7 @@ Build NoHarm Integration
 (based on https://docs.docker.com/compose/install/linux/)
 ``` sudo apt-get  install docker-compose ```
 
-## . Clone the repository
+## 2. Clone the repository
 ``` git clone https://github.com/noharm-ai/nifi-composer/ ```
 
 ## 3. Check and update the enviroment variables if needed
@@ -22,4 +22,4 @@ Or if you want to run in Detached mode (Run containers in the background)
 ``` docker compose up -d ```
 
 
-# Reference comands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
+### Reference comands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
