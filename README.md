@@ -20,6 +20,7 @@ Based on https://docs.docker.com/compose/install/linux/
 Wait intil the containers are ready...
 
 Or if you want to run in Detached mode (Run containers in the background)
+
 ``` docker compose up -d ```
 
 
