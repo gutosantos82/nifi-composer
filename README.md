@@ -2,7 +2,8 @@
 Build NoHarm Integration
 
 ## 1. Install Docker compose 
-(based on https://docs.docker.com/compose/install/linux/)
+Based on https://docs.docker.com/compose/install/linux/
+
 ``` sudo apt-get  install docker-compose ```
 
 ## 2. Clone the repository
