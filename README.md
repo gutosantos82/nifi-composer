@@ -12,6 +12,7 @@ Build NoHarm Integration
 ## Compose Up
 
 ``` cd nifi-composer ```
+
 ``` docker compose up ```
 
 Wait intil the containers are ready...
