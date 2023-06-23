@@ -15,13 +15,13 @@ Based on https://docs.docker.com/compose/install/linux/
 
 ``` cd nifi-composer ```
 
-``` docker compose up ```
+``` docker-compose up ```
 
 Wait intil the containers are ready...
 
 Or if you want to run in Detached mode (Run containers in the background)
 
-``` docker compose up -d ```
+``` docker-compose up -d ```
 
 
 ### Reference comands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
