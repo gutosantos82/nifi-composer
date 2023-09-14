@@ -8,7 +8,7 @@ networks:
           - subnet: "172.19.0.0/16"
 services:
  nifi:
-    container_name: "nifi"
+    container_name: "noharm-nifi"
     hostname: "noharm-nifi"
     image: "noharm/nifi:1.21.0"
     entrypoint:
@@ -23,7 +23,7 @@ services:
       options: {}
     networks:
       noharm-net:
-        ipv4_address: 172.19.0.2
+        ipv4_address: 172.19.0.1
     ports:
       - "8443:8443/tcp"
     restart: "always"
@@ -34,7 +34,7 @@ services:
       - "/bin/sh"
       - "-c"
       - "python main.py"
-    container_name: "myanony"
+    container_name: "noharm-anony"
     hostname: "noharm-anony"
     image: "noharm/anony:0.1"
     env_file:
@@ -47,8 +47,31 @@ services:
       options: {}
     networks:
       noharm-net:
-        ipv4_address: 172.19.0.3
+        ipv4_address: 172.19.0.2
     ports:
       - "80:80/tcp"
+    restart: "always"
+    working_dir: "/app"
+ mygetname:
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "python main.py"
+    container_name: "noharm-getname"
+    hostname: "noharm-getname"
+    image: "noharm/getname:latest"
+    env_file:
+      - ./noharm.env    
+    ipc: "private"
+    labels:
+      maintainer: "NoHarm.ai <suporte@noharm.ai>"
+    logging:
+      driver: "json-file"
+      options: {}
+    networks:
+      noharm-net:
+        ipv4_address: 172.19.0.3
+    ports:
+      - "443:443/tcp"
     restart: "always"
     working_dir: "/app"
