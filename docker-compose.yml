@@ -19,8 +19,11 @@ services:
     labels:
         maintainer: "NoHarm.ai <suporte@noharm.ai>"
     logging:
-      driver: "json-file"
-      options: {}
+      driver: awslogs
+      options:
+          awslogs-region: sa-east-1
+          awslogs-group: IntegracaoNifi
+          awslogs-stream: nifi/schema
     networks:
       noharm-net:
         ipv4_address: 172.19.0.1
