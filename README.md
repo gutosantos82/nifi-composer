@@ -4,7 +4,8 @@ Build NoHarm Integration
 ## 1. Install Docker compose 
 Based on https://docs.docker.com/compose/install/linux/
 
-``` sudo apt-get  install docker-compose ```
+For Ubuntu:
+``` sudo apt-get install docker-compose ```
 
 ## 2. Clone the repository
 ``` git clone https://github.com/noharm-ai/nifi-composer/ ```
