@@ -10,19 +10,15 @@ For Ubuntu:
 ## 2. Clone the repository
 ``` git clone https://github.com/noharm-ai/nifi-composer/ ```
 
-## 3. Check and update the enviroment variables if needed
+## 3. Check and update the environment variables if needed
 
 ## 4. Compose Up
 
 ``` cd nifi-composer ```
 
-``` docker-compose up ```
+``` docker-compose up -d```
 
-Wait intil the containers are ready...
-
-Or if you want to run in Detached mode (Run containers in the background)
-
-``` docker-compose up -d ```
+Wait until the containers are ready...
 
 
-### Reference comands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
+### Reference commands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
