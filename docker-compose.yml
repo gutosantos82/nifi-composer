@@ -23,7 +23,7 @@ services:
       options: {}
     networks:
       noharm-net:
-        ipv4_address: 172.19.0.1
+        ipv4_address: 172.19.0.2
     ports:
       - "8443:8443/tcp"
     restart: "always"
@@ -47,7 +47,7 @@ services:
       options: {}
     networks:
       noharm-net:
-        ipv4_address: 172.19.0.2
+        ipv4_address: 172.19.0.3
     ports:
       - "80:80/tcp"
     restart: "always"
@@ -70,7 +70,7 @@ services:
       options: {}
     networks:
       noharm-net:
-        ipv4_address: 172.19.0.3
+        ipv4_address: 172.19.0.4
     ports:
       - "443:443/tcp"
     restart: "always"
