@@ -20,7 +20,8 @@ services:
         maintainer: "NoHarm.ai <suporte@noharm.ai>"
     logging:
       driver: "json-file"
-      options: {}
+      options:
+        max-size: "100m"
     networks:
       noharm-net:
         ipv4_address: 172.19.0.2
@@ -44,7 +45,8 @@ services:
       maintainer: "NoHarm.ai <suporte@noharm.ai>"
     logging:
       driver: "json-file"
-      options: {}
+      options:
+        max-size: "100m"
     networks:
       noharm-net:
         ipv4_address: 172.19.0.3
@@ -67,7 +69,8 @@ services:
       maintainer: "NoHarm.ai <suporte@noharm.ai>"
     logging:
       driver: "json-file"
-      options: {}
+      options:
+        max-size: "100m"
     networks:
       noharm-net:
         ipv4_address: 172.19.0.4
