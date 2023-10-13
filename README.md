@@ -14,11 +14,17 @@ For Ubuntu:
 
 ## 4. Compose Up
 
+``` docker login ```
+
+set user and password
+
 ``` cd nifi-composer ```
 
 ``` docker-compose up -d```
 
 Wait until the containers are ready...
+
+``` docker logout```
 
 
 ### Reference commands for Docker Compose: https://docs.docker.com/engine/reference/commandline/compose_up/
