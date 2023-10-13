@@ -31,10 +31,6 @@ services:
     user: "nifi"
     working_dir: "/opt/nifi/nifi-current"   
  myanony:
-    command:
-      - "/bin/sh"
-      - "-c"
-      - "python main.py"
     container_name: "noharm-anony"
     hostname: "noharm-anony"
     image: "noharm/anony:latest"
@@ -55,10 +51,6 @@ services:
     restart: "always"
     working_dir: "/app"
  mygetname:
-    command:
-      - "/bin/sh"
-      - "-c"
-      - "python main.py"
     container_name: "noharm-getname"
     hostname: "noharm-getname"
     image: "noharm/getname:latest"
