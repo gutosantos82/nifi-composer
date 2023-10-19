@@ -10,7 +10,7 @@ services:
  nifi:
     container_name: "noharm-nifi"
     hostname: "noharm-nifi"
-    image: "noharm/nifi:1.21.0"
+    image: "noharm/nifi:latest"
     entrypoint:
       - "../scripts/start.sh"
     env_file:
