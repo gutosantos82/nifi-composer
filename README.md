@@ -10,7 +10,7 @@ For Ubuntu:
 ## 2. Clone the repository
 ``` git clone https://github.com/noharm-ai/nifi-composer/ ```
 
-## 3. Check and update the environment variables if needed
+## 3. Update the environment variables (noharm.env)
 
 ## 4. Compose Up
 
