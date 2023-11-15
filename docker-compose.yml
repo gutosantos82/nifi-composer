@@ -34,8 +34,8 @@ services:
     user: "nifi"
     working_dir: "/opt/nifi/nifi-current"
     volumes:
-      - nifi_certs: /opt/certs
-      - nifi_conf: /opt/nifi/nifi-current/conf
+      - nifi_certs:/opt/certs
+      - nifi_conf:/opt/nifi/nifi-current/conf
  myanony:
     container_name: "noharm-anony"
     hostname: "noharm-anony"
@@ -83,4 +83,4 @@ services:
       noharm-net:
         ipv4_address: 172.19.0.5
     volumes:
-      - nifi_certs: /opt/certs
+      - nifi_certs:/opt/certs
