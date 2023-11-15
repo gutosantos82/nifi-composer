@@ -79,11 +79,14 @@ services:
  nifi-toolkit:
     container_name: "nifi-toolkit"
     image: "apache/nifi-toolkit:latest"
+    user: root
     networks:
       noharm-net:
         ipv4_address: 172.19.0.5
     volumes:
       - nifi_certs:/opt/certs
+      - nifi_conf:/opt/nifi/nifi-current/conf
+    entrypoint: ["bash", "-c", "/opt/nifi-toolkit/*/bin/tls-toolkit.sh standalone -f /opt/nifi/nifi-current/conf --isOverwrite;"] 
  restarter:
     image: docker:cli
     restart: unless-stopped
