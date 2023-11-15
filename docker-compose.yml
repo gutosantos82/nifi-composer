@@ -7,7 +7,6 @@ networks:
         config: 
           - subnet: "172.19.0.0/16"
 volumes:
-  nifi_certs:
   nifi_conf:
 services:
  nifi:
@@ -34,7 +33,6 @@ services:
     user: "nifi"
     working_dir: "/opt/nifi/nifi-current"
     volumes:
-      - nifi_certs:/opt/certs
       - nifi_conf:/opt/nifi/nifi-current/conf
  myanony:
     container_name: "noharm-anony"
@@ -84,9 +82,8 @@ services:
       noharm-net:
         ipv4_address: 172.19.0.5
     volumes:
-      - nifi_certs:/opt/certs
       - nifi_conf:/opt/nifi/nifi-current/conf
-    entrypoint: ["bash", "-c", "/opt/nifi-toolkit/*/bin/tls-toolkit.sh standalone -f /opt/nifi/nifi-current/conf --isOverwrite;"] 
+    entrypoint: ["bash", "-c", "/opt/nifi-toolkit/*/bin/tls-toolkit.sh standalone -f /opt/nifi/nifi-current/conf/nifi.properties --isOverwrite;"] 
  restarter:
     image: docker:cli
     restart: unless-stopped
