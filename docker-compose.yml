@@ -6,6 +6,9 @@ networks:
         driver: default
         config: 
           - subnet: "172.19.0.0/16"
+volumes:
+  nifi_certs:
+  nifi_conf:
 services:
  nifi:
     container_name: "noharm-nifi"
@@ -29,7 +32,10 @@ services:
       - "8443:8443/tcp"
     restart: "always"
     user: "nifi"
-    working_dir: "/opt/nifi/nifi-current"   
+    working_dir: "/opt/nifi/nifi-current"
+    volumes:
+      - nifi_certs: /opt/certs
+      - nifi_conf: /opt/nifi/nifi-current/conf
  myanony:
     container_name: "noharm-anony"
     hostname: "noharm-anony"
@@ -70,3 +76,11 @@ services:
       - "443:443/tcp"
     restart: "always"
     working_dir: "/app"
+ nifi-toolkit:
+    container_name: "nifi-toolkit"
+    image: "apache/nifi-toolkit:latest"
+    networks:
+      noharm-net:
+        ipv4_address: 172.19.0.5
+    volumes:
+      - nifi_certs: /opt/certs
