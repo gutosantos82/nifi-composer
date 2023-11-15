@@ -84,3 +84,16 @@ services:
         ipv4_address: 172.19.0.5
     volumes:
       - nifi_certs:/opt/certs
+ restarter:
+    image: docker:cli
+    restart: unless-stopped
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+    entrypoint: ["/bin/sh","-c"]
+    command:
+      - |
+        while true; do
+          if [ "$$(date +'%H:%M')" = '02:00' ]; then
+            docker restart nifi-toolkit
+          fi
+          sleep 60
+        done
